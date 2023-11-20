@@ -1,41 +1,37 @@
-from fastapi import FastAPI
-import database
-# from pydantic import BaseModel
+from typing import List
+
+from fastapi import FastAPI, HTTPException, Depends
+import query, post, models
+from database import Session, engine
 import uvicorn
+
+
 app = FastAPI()
 
-#
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"], )
+def get_db():
+    db = Session()
+    try:
+        yield db
+    finally:
+        db.close()
 
-# SQLALCHEMY_URL = "postgresql://postgres:123@localhost/mydb"
-# engine = create_engine(
-#     SQLALCHEMY_URL, connect_args={"check_same_thread": False}
-# )
-# SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-# db = SessionLocal()
+@app.get("/home/", response_model=List[post.Sweet])
+async def output(db: Session = Depends(get_db)):
+    Sweet = query.get_all(db);
+    return Sweet
 
-# Base = declarative_base()
-# class Shop(Base):
-#     __tablename__ = "products"
-#
-#     id = Column(Integer, primary_key=True, index=True)
-#     name = Column(String)
-#     price = Column(Float)
-#
-# Base.metadata.create_all(bind=engine)
-#
-# Модель
-# class Item(BaseModel):
-#    name: str
-#    description: Union[str, None] = None
-#    price: float
-#    tax: Union[float, None] = None
+@app.get("/home/{category}", response_model=List[post.Sweet])
+def read_user(category: int, db: Session = Depends(get_db)):
+    db_user = query.get_category(db, category=category)
+    if db_user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return db_user
 
-@app.post("/post/")
-async def create_item(data:Item):
-    return {"message": "Hello World"}
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
+
 
 # git remote add origin https: // github.com /RumWar/Ych-practika.git http_proxy=http://10.0.21.52:3128
 
