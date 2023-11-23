@@ -25,10 +25,10 @@ async def output(db: Session = Depends(get_db)):
     Sweet = query.get_all(db);
     return Sweet
 
-@app.get("/home/{category}", response_model=post.Sweet)
-def read_user(category: int, db: Session = Depends(get_db)):
-    db_user = query.get_category(db, category=category)
-    return db_user
+@app.get("/category/", response_model=List[post.Category1])
+def read_user(db: Session = Depends(get_db)):
+    category = query.get_category(db)
+    return category
 
 # @app.get("/")
 # async def root():

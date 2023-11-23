@@ -1,16 +1,7 @@
-//let data = fetch('http://127.0.0.1:8000/home/',{
-//            mode: 'no-cors',
-//            method: "get",
-//            headers: {
-//                 "Content-Type": "application/json"
-//            },
-// })
-//        .then(res => res.json())
-//        .then(data => {alert(data)})
-let d = 12
-console.log(d);
+// let post = document.get('post');
+// let p = document.createElement("p");
+// post.append(p);
 fetch('http://127.0.0.1:8000/home/', {
-//    mode: 'no-cors',
     method: 'GET',
     headers: {
     "Content-Type": "application/json",
@@ -18,9 +9,36 @@ fetch('http://127.0.0.1:8000/home/', {
     },})
     .then(res => res.json())
     .then(function(data) {
-   for (let i = 0; i < 9; i++) {
-  console.log(data[i]);}
+    for (let i = 0; i < data.length; i++) {
+    let p = document.createElement("p");
+    let ne = data[i];
+    console.log(post)
+    p.append(ne.name);
+    post.append(p)}
+    post = document.getElementById("post");
         return console.log(200)
 })
-
-var s = [{"Select":"11", "PhotoCount":"12"},{"Select":"21", "PhotoCount":"22"}];
+bar = document.getElementById("bar")
+console.log(bar);
+fetch('http://127.0.0.1:8000/category/', {
+    method: 'GET',
+    headers: {
+    "Content-Type": "application/json",
+        accept: 'index.html',
+    },})
+    .then(res => res.json())
+    .then(function(data) {
+        let bar = document.getElementById("bar");
+        console.log(bar);
+        for (let i = 0; i < data.length; i++) {
+            let li = document.createElement("li");
+            let a = document.createElement("a");
+            a.href="";
+            let ne = data[i];
+            console.log(bar)
+            a.append(ne.category);
+            li.append(a);
+            bar.appendChild(li)}
+    
+        return console.log(200)
+})
