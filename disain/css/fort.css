@@ -53,7 +53,7 @@ ul{
     padding: 0;
 }
 .post{
-    background: rgb(160, 244, 250);
+    background: rgb(129, 178, 154);
     height: 548px;
     width: 90%;
     margin: 0;
@@ -82,13 +82,26 @@ ul{
 }
 p{
     background:rgb(247, 98, 98);
-    height: 100px;
+    max-height: 400px;
     width: 98%;
     margin: 1%;
     padding: 0;
     border-radius: 10px;
     text-align: center;
+    display: flex;
+    flex: auto;
+    flex-flow: column;
+    justify-content:center;
+}
+img{
+    max-width:25%;
+    max-height: 100px;
+    margin: 1%;
+    padding: 0;
 }
 /* .staty{
 
 } */
+@media screen {
+    
+}

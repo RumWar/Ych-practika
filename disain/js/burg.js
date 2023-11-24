@@ -1,4 +1,6 @@
-bar = document.getElementById("bar");
-post = document.getElementById("post");
-console.log(bar);
-console.log(post);
+col = document.querySelectorAll('p')
+console.log(col)
+document.querySelector('button').addEventListener('click', function() {
+    document.getElementById('one').classList.toggle("hidden");
+    document.getElementById('two').classList.toggle("hidden");
+  })

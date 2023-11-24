@@ -30,6 +30,9 @@ def read_user(db: Session = Depends(get_db)):
     category = query.get_category(db)
     return category
 
+@app.post("/comment/", response_model=post.Response1)
+def create_user(comment: str, db: Session = Depends(get_db)):
+    return query.create_user(db=db, comment=comment)
 # @app.get("/")
 # async def root():
 #     return {"message": "Hello World"}
