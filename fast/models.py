@@ -34,15 +34,15 @@ class Response(Base):
 Base.metadata.create_all(bind=engine)
 
 # cookies = Category(
-#     category="cookies",
-# )
-#
-# cookies3 = Sweets(
-#     name="Шоколадное печенье",
-#     description="Рассыпчатое, политое шоколадом",
-#     category_id=1,
-#     img="http://klublady.ru/uploads/posts/2022-02/1644704359_64-klublady-ru-p-pechenki-s-shokoladom-foto-70.jpg"
+#     category="Мармелад",
 # )
 # session.add(cookies)
-# session.add(cookies3)
-# session.commit()
+cookies3 = Sweets(
+    name="Рахат-лукум с орехами",
+    description="Восточная сладость в сахорной пудре с кусочками арахиса",
+    category_id=5,
+    img="https://o-tendencii.com/uploads/posts/2022-02/1645682122_40-o-tendencii-com-p-turetskie-sladosti-rakhat-lukum-foto-43.jpg"
+)
+
+session.add(cookies3)
+session.commit()

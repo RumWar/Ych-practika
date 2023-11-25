@@ -18,7 +18,7 @@ body::-webkit-scrollbar-thumb {
 .header{
     height: 80px;
     width: 100%;
-    background: rgb(215, 125, 125);
+    background: rgb(215, 235, 186);
     margin: 0 auto;
     padding: 0;
 }
@@ -34,12 +34,16 @@ body::-webkit-scrollbar-thumb {
     background-size: cover;
 }
 .bar{
-    background: rgb(247, 98, 98);
+    background: rgb(255,209,220);
     height: 548px;
     width: 10%;
     margin: 0;
     padding: 0;
     float: left;
+    display: flex;
+    flex: auto;
+    flex-flow: column;
+    justify-content:center;
 }
 ul{
     margin: 0;
@@ -53,7 +57,7 @@ ul{
     padding: 0;
 }
 .post{
-    background: rgb(129, 178, 154);
+    background: rgb(127,181,181);
     height: 548px;
     width: 90%;
     margin: 0;
@@ -81,7 +85,7 @@ ul{
 
 }
 p{
-    background:rgb(247, 98, 98);
+    background:rgb(255,209,220);
     max-height: 400px;
     width: 98%;
     margin: 1%;
@@ -98,6 +102,9 @@ img{
     max-height: 100px;
     margin: 1%;
     padding: 0;
+}
+button{
+    background: rgb(127,181,181);;
 }
 /* .staty{
 
