@@ -34,15 +34,14 @@ class Response(Base):
 Base.metadata.create_all(bind=engine)
 
 # cookies = Category(
-#     category="Мармелад",
+#     category="Взбитые",
 # )
 # session.add(cookies)
-cookies3 = Sweets(
-    name="Рахат-лукум с орехами",
-    description="Восточная сладость в сахорной пудре с кусочками арахиса",
-    category_id=5,
-    img="https://o-tendencii.com/uploads/posts/2022-02/1645682122_40-o-tendencii-com-p-turetskie-sladosti-rakhat-lukum-foto-43.jpg"
-)
-
-session.add(cookies3)
-session.commit()
+# cookies3 = Sweets(
+#     name="Безе",
+#     description="Хрустящее удовольствие, белой нежности, со сладкой начинкой, вытекающей из оболочки, смешивающийся в приятное послевкусие.Тает во рту",
+#     category_id=7,
+#     img="https://avatars.dzeninfra.ru/get-zen_doc/108343/pub_62b45547390b0f3680acf7d4_62b48dd8db821f6462882865/scale_1200"
+# )
+# session.add(cookies3)
+# session.commit()
